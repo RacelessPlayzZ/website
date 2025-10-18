@@ -1,4 +1,5 @@
-/* === RacelessPlayZ Portfolio Styling === */
+/* === RacelessPlayZ Portfolio — Animated with Navbar === */
+
 body {
     font-family: "Poppins", sans-serif;
     background: #0a0a0a;
@@ -6,18 +7,69 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    scroll-behavior: smooth;
 }
 
+/* === Navbar === */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(15, 15, 15, 0.95);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+    box-shadow: 0 2px 10px rgba(0, 195, 255, 0.1);
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+}
+
+.nav-logo {
+    color: #00c3ff;
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.nav-links li a:hover {
+    color: #00c3ff;
+    text-shadow: 0 0 10px #00c3ff;
+}
+
+/* === Header === */
 header {
-    background: linear-gradient(135deg, #111, #1e1e1e);
-    padding: 70px 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, #0e0e0e, #1a1a1a);
+    padding: 120px 20px 80px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
+    animation: fadeInDown 1.2s ease;
 }
 
 header h1 {
     font-size: 3rem;
     color: #00c3ff;
     margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(0, 195, 255, 0.5);
+    animation: glowText 2s ease-in-out infinite alternate;
 }
 
 header p {
@@ -25,44 +77,82 @@ header p {
     color: #aaa;
 }
 
+/* === Sections === */
 section {
-    padding: 60px 20px;
-    max-width: 800px;
+    padding: 80px 20px;
+    max-width: 850px;
     margin: auto;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s forwards;
 }
 
+section:nth-of-type(2) { animation-delay: 0.5s; }
+section:nth-of-type(3) { animation-delay: 1s; }
+
+/* === Headings === */
 h2 {
     color: #00c3ff;
     margin-bottom: 20px;
     border-bottom: 2px solid #00c3ff;
     display: inline-block;
     padding-bottom: 5px;
+    text-transform: uppercase;
 }
 
+/* === Project Cards === */
 .project {
     background: #151515;
-    margin: 20px 0;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 195, 255, 0.1);
+    margin: 25px 0;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 195, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.project:hover {
+    box-shadow: 0 0 25px rgba(0, 195, 255, 0.3);
+    transform: scale(1.03);
+    background: #1a1a1a;
 }
 
 .project h3 {
     color: #00c3ff;
 }
 
+/* === Links === */
 a {
     color: #00c3ff;
     text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 a:hover {
-    text-decoration: underline;
+    color: #66e0ff;
+    text-shadow: 0 0 10px rgba(102, 224, 255, 0.7);
 }
 
+/* === Footer === */
 footer {
-    background: #111;
-    padding: 20px;
+    background: #0e0e0e;
+    padding: 25px;
     color: #777;
     font-size: 0.9rem;
+    border-top: 1px solid #222;
+}
+
+/* === Animations === */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glowText {
+    from { text-shadow: 0 0 10px rgba(0, 195, 255, 0.5); }
+    to { text-shadow: 0 0 25px rgba(0, 195, 255, 1); }
 }
