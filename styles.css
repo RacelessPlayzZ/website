@@ -33,6 +33,7 @@ nav {
   transform: translateY(-20px);
   animation: navSlideIn 0.8s ease forwards;
   transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
 }
 
 /* Animation delay for each link */
@@ -47,10 +48,29 @@ nav {
   }
 }
 
+/* Hover effects */
 .nav-links a:hover {
   color: #ffffff;
   text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
   transform: scale(1.1);
+}
+
+/* Underline glow effect */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #00bfff;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px #00bfff;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 /* Hero section */
@@ -131,4 +151,31 @@ footer {
   background: #000;
   color: #888;
   font-size: 0.9rem;
+}
+
+/* Custom Glowing Cursor */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #00bfff;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 15px #00bfff, 0 0 25px #00bfff;
+  animation: cursorGlow 1.5s infinite alternate;
+  transition: transform 0.1s ease-out;
+  z-index: 9999;
+}
+
+@keyframes cursorGlow {
+  from { opacity: 0.6; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.2); }
+}
+
+/* Hide default cursor */
+body, a, button {
+  cursor: none;
 }
