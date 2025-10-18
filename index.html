@@ -1,77 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RacelessPlayZ | Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RacelessPlayZ | Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <h2 class="logo">RacelessPlayZ</h2>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-    <header id="home">
-        <h1><span class="typewriter"></span></h1>
-        <p>Developer • Designer • Gamer</p>
-    </header>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h1 id="typewriter"></h1>
+    <p>Developer • Designer • Gamer</p>
+  </section>
 
-    <section id="projects">
-        <h2>My Projects</h2>
-        <div class="project">
-            <h3>Custom Minecraft Plugin</h3>
-            <p>A fully optimized plugin made for TrendMC Network — smooth performance and modern GUI!</p>
-        </div>
-        <div class="project">
-            <h3>Discord Bot System</h3>
-            <p>Professional moderation and ticket bot with product-based ticket rename system.</p>
-        </div>
-    </section>
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <h2>My Projects</h2>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>📧 Email: <a href="mailto:racelessplayz@gmail.com">racelessplayz@gmail.com</a></p>
-        <p>💬 Discord: RacelessPlayZ#0001</p>
-    </section>
+    <div class="project">
+      <h3>🔥 Minecraft Server Developer</h3>
+      <p>Right Now Working On TrendMC And Making It A Very Memorable Server.</p>
+    </div>
 
-    <footer>
-        <p>© 2025 RacelessPlayZ | All Rights Reserved</p>
-    </footer>
+    <div class="project">
+      <h3>🤖 Discord Bot Dev</h3>
+      <p>Professional Discord Bot Dev.</p>
+    </div>
+  </section>
 
-    <script>
-        // === Typewriter Animation ===
-        const textArray = ["Hello, I'm RacelessPlayZ.", "Welcome to my portfolio!", "Let's create something amazing!"];
-        const typeWriterSpan = document.querySelector(".typewriter");
-        let textIndex = 0;
-        let charIndex = 0;
+  <!-- Contact Section -->
+  <section id="contact" class="section contact">
+    <h2>Contact Me</h2>
+    <p>Want to collaborate or chat? Reach out below!</p>
+    <ul>
+      <li>📧 Email: <a href="mailto:racelessplayz@gmail.com">racelessplayz@gmail.com</a></li>
+      <li>💬 Discord: raceless.space</li>
+      <li>🌐 GitHub: <a href="https://github.com/RacelessPlayZ" target="_blank">RacelessPlayZ</a></li>
+    </ul>
+  </section>
 
-        function typeEffect() {
-            if (charIndex < textArray[textIndex].length) {
-                typeWriterSpan.textContent += textArray[textIndex].charAt(charIndex);
-                charIndex++;
-                setTimeout(typeEffect, 100);
-            } else {
-                setTimeout(eraseEffect, 2000);
-            }
-        }
+  <footer>
+    © 2025 RacelessPlayZ | All Rights Reserved
+  </footer>
 
-        function eraseEffect() {
-            if (charIndex > 0) {
-                typeWriterSpan.textContent = textArray[textIndex].substring(0, charIndex - 1);
-                charIndex--;
-                setTimeout(eraseEffect, 50);
-            } else {
-                textIndex = (textIndex + 1) % textArray.length;
-                setTimeout(typeEffect, 500);
-            }
-        }
+  <!-- Typewriter Animation Script -->
+  <script>
+    const text = "Welcome to my portfolio!";
+    const typewriter = document.getElementById("typewriter");
+    let i = 0;
 
-        document.addEventListener("DOMContentLoaded", typeEffect);
-    </script>
+    function type() {
+      if (i < text.length) {
+        typewriter.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, 80);
+      }
+    }
+
+    window.onload = type;
+  </script>
 </body>
 </html>
